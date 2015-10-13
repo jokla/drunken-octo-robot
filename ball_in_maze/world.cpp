@@ -5,7 +5,8 @@
  *      Author: dri
  */
 
-#include "../p3util/cOnscreenText.h"
+//#include "../p3util/cOnscreenText.h"
+#include"cOnscreenText.h"
 #include "pandaFramework.h"
 #include "bitMask.h"
 #include "ambientLight.h"
@@ -17,6 +18,7 @@
 #include "cMetaInterval.h"
 #include "cIntervalManager.h"
 #include "world.h"
+
 
 World::World(WindowFramework* windowFrameworkPtr)
    : UP(0,0,1),
@@ -61,7 +63,7 @@ World::World(WindowFramework* windowFrameworkPtr)
 
    // Load the maze and place it in the scene
    NodePath modelsNp = m_windowFrameworkPtr->get_panda_framework()->get_models();
-   m_mazeNp = m_windowFrameworkPtr->load_model(modelsNp, "../models/maze");
+   m_mazeNp = m_windowFrameworkPtr->load_model(modelsNp, "../../ball_in_maze/models/maze");
    NodePath renderNp = m_windowFrameworkPtr->get_render();
    m_mazeNp.reparent_to(renderNp);
 
@@ -130,7 +132,7 @@ World::World(WindowFramework* windowFrameworkPtr)
    // It is on a root dummy node so that we can rotate the ball itself without
    // rotating the ray that will be attached to it
    m_ballRootNp = renderNp.attach_new_node("ballRoot");
-   m_ballNp = m_windowFrameworkPtr->load_model(modelsNp, "../models/ball");
+   m_ballNp = m_windowFrameworkPtr->load_model(modelsNp, "../../ball_in_maze/models/ball");
    m_ballNp.reparent_to(m_ballRootNp);
 
    // Find the collision sphere for the ball which was created in the egg file

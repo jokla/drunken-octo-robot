@@ -7,6 +7,8 @@
 
 #include "cOnscreenText.h"
 
+#define Colorf LColorf
+
 const float COnscreenText::MARGIN = 0.1;
 const float COnscreenText::SHADOW = 0.4;
 

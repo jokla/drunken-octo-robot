@@ -12,6 +12,8 @@
 #ifndef CONSCREENTEXT_H_
 #define CONSCREENTEXT_H_
 
+#define Colorf LColorf
+
 #include "pandaFramework.h"
 
 class COnscreenText : public NodePath

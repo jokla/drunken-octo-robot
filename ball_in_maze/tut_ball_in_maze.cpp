@@ -20,6 +20,11 @@
  *
  */
 
+//#if PANDA_NUMERIC_VERSION >= 1008000
+#define Colorf LColorf
+//#endif
+
+
 #include "pandaFramework.h"
 #include "world.h"
 

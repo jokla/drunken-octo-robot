@@ -29,6 +29,8 @@
 #ifndef CFILTERMANAGER_H_
 #define CFILTERMANAGER_H_
 
+#define Colorf LColorf
+
 #include "pandaFramework.h"
 
 struct CFilterManager
