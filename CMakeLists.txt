@@ -64,5 +64,6 @@ add_library (p3util
 
 add_subdirectory (ball_in_maze)
 
+add_subdirectory (test_mouse)
 
 

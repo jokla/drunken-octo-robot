@@ -347,15 +347,47 @@ AsyncTask::DoneStatus World::roll(GenericAsyncTask* taskPtr)
       else if(name == "loseTrigger")    { lose_game(*entryPtr);              }
       }
 
-   // Read the mouse position and tilt the maze accordingly
-   PT(MouseWatcher) mouseWatcherPtr = DCAST(MouseWatcher, m_windowFrameworkPtr->get_mouse().node());
-   if(mouseWatcherPtr->has_mouse())
-      {
-      // get the mouse position
-      const LPoint2f& mpos = mouseWatcherPtr->get_mouse();
-      m_mazeNp.set_p(mpos.get_y() * -10);
-      m_mazeNp.set_r(mpos.get_x() * 10);
-      }
+
+//   // Read the mouse position and tilt the maze accordingly
+//   PT(MouseWatcher) mouseWatcherPtr = DCAST(MouseWatcher, m_windowFrameworkPtr->get_mouse().node());
+
+//   if(mouseWatcherPtr->has_mouse())
+//      {
+//      // get the mouse position
+//      const LPoint2f& mpos = mouseWatcherPtr->get_mouse();
+//      m_mazeNp.set_p(mpos.get_y() * -10);
+//      m_mazeNp.set_r(mpos.get_x() * 10);
+//      }
+
+
+   // Get a MouseWatcher from the created window
+    // will be used to move nodes arround
+   //m_windowFrameworkPtr->setup_trackball();
+    NodePath mouseNode = m_windowFrameworkPtr->get_mouse();
+
+
+    //std::cout<<"get_num_input_devices():" <<m_windowFrameworkPtr->get_num_input_devices() <<std::endl;
+
+//    if(!mouseNode.is_empty())
+//    {
+
+//       MouseWatcher* mouseWatcher = dynamic_cast<MouseWatcher*>(mouseNode.node());
+
+
+//       std::cout<<"HasMouse:" << mouseWatcher->has_mouse() <<std::endl;
+//       std::cout<<"x= "<< mouseWatcher->get_mouse_x() * 10<<std::endl;
+//       std::cout<<"y= "<< mouseWatcher->get_mouse_y() * 10<<std::endl;
+
+//       if(mouseWatcher != NULL && mouseWatcher->has_mouse())
+//       {
+//          m_mazeNp.set_x(mouseWatcher->get_mouse_x() * 10);
+//          m_mazeNp.set_y(mouseWatcher->get_mouse_y() * 10);
+//       }
+//}
+
+
+   m_mazeNp.set_r( m_windowFrameworkPtr->get_graphics_window()->get_pointer(0).get_x()/ 10 -40);
+   m_mazeNp.set_p( m_windowFrameworkPtr->get_graphics_window()->get_pointer(0).get_y()/ 10 -30);
 
    // Finally, we move the ball
    // Update the velocity based on acceleration
